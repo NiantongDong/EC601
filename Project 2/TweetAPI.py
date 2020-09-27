@@ -16,10 +16,13 @@ def Display_tweets(Input_list):
 
 #Write tweets information to file as json format.
 def Write_tweets_to_File(Input_list,target_filename):
+    data = []
     filename = "%s.json" % target_filename
     Tweets_text = open(filename, 'w') 
     for status in Input_list:
-        json.dump(status._json,Tweets_text,indent = 6)
+        # json.dump(status._json,Tweets_text,indent = 4)
+        data.append(status._json)
+    json.dump(data,Tweets_text)
     Tweets_text.close
     
 #Get all of tweets from my home page.
@@ -49,7 +52,7 @@ def GET_Hashtag_Search_Tweets(Local_API,Hashtag,Count_Number,Time_before):
 
 if __name__ == "__main__":
     API = Authorization_Setup()
-    # Home_Tweets = GET_My_Home_tweets(API)
-    # User_Tweets = Get_User_Timeline(API,'BU_ece',10) #Use Boston University ECE department twitter as example.
-    # Result_Tweets = GET_Search_Tweets(API,"Boston University","recent",10,"2020-09-26")
+    Home_Tweets = GET_My_Home_tweets(API)
+    User_Tweets = Get_User_Timeline(API,'BU_ece',10) #Use Boston University ECE department twitter as example.
+    Result_Tweets = GET_Search_Tweets(API,"Boston University","recent",10,"2020-09-26")
     GET_Hashtag_Search_Tweets(API,"#Boston University",5,"2020-09-26")
