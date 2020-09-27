@@ -1,10 +1,7 @@
 import tweepy
 import Keys #All my keys in local file
 import sys
-# from searchtweets import ResultStream, gen_rule_payload, load_credentials
-# import yaml
-# from searchtweets import collect_results
-# print("Hello world!")
+import json #To write file as json format
 
 def Authorization_Setup():
     auth = tweepy.OAuthHandler(Keys.consumer_key, Keys.consumer_secret)
@@ -17,19 +14,42 @@ def Display_tweets(Input_list):
     for tweet in Input_list:
         print(tweet.text,end ="\n\n")
 
-# def Write_tweets_to_File():
-#     Tweets_text = open('tweet.json', 'w') 
-
+#Write tweets information to file as json format.
+def Write_tweets_to_File(Input_list,target_filename):
+    filename = "%s.json" % target_filename
+    Tweets_text = open(filename, 'w') 
+    for status in Input_list:
+        json.dump(status._json,Tweets_text,indent = 6)
+    Tweets_text.close
+    
 #Get all of tweets from my home page.
 def GET_My_Home_tweets(Local_API):
     My_Home_tweets = Local_API.home_timeline()
-    Display_tweets(My_Home_tweets)
+    # Display_tweets(My_Home_tweets)
+    Write_tweets_to_File(My_Home_tweets,'tweets')
     return My_Home_tweets
 
-# def Get_User_Timeline(Local_API):
+#Get certain number of tweets from a single twitter account.
+def Get_User_Timeline(Local_API,User_ID,Count_Number):
+    user_tweets_list = Local_API.user_timeline(User_ID,count = Count_Number)
+    # Display_tweets(user_tweets)
+    Write_tweets_to_File(user_tweets_list,'user_tweets')
+    return user_tweets_list
+
+#Search and return tweets based on input txt and time.
+def GET_Search_Tweets(Local_API,Target_content,search_type,Count_Number,Time):
+    Result_Tweets = Local_API.search(q=Target_content,result_type = search_type,count = Count_Number,until = Time)
+    # Display_tweets(Result_Tweets)
+    Write_tweets_to_File(Result_Tweets,'Search_tweets')
+
+#Search tweets based on Hashtag and time.
+def GET_Hashtag_Search_Tweets(Local_API,Hashtag,Count_Number,Time_before):
+    Hashtag_Tweets = tweepy.Cursor(Local_API.search,q=Hashtag,count=Count_Number,since=Time_before)
+    Write_tweets_to_File(Hashtag_Tweets.items(),'Hashtag_Tweets')
 
 if __name__ == "__main__":
     API = Authorization_Setup()
-    Home_Tweets = GET_My_Home_tweets(API)
-
-# Certain_tweets = api.user_timeline(User_ID,count=c)
+    # Home_Tweets = GET_My_Home_tweets(API)
+    # User_Tweets = Get_User_Timeline(API,'BU_ece',10) #Use Boston University ECE department twitter as example.
+    # Result_Tweets = GET_Search_Tweets(API,"Boston University","recent",10,"2020-09-26")
+    GET_Hashtag_Search_Tweets(API,"#Boston University",5,"2020-09-26")
