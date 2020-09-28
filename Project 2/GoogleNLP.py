@@ -8,9 +8,9 @@ import json
 client = language.LanguageServiceClient()
 
 #Import Tweets result file.
-with open("Hashtag_Tweets.json") as f:
+with open("tweets.json") as f:
     data = json.loads(f.read()) 
-Sentiment_output = open("Hashtag_sentiment.txt","w")
+Sentiment_output = open("tweets_sentiment.txt","w")
 #Analyze each tweet text
 for tweet in data:
     text = tweet['text']

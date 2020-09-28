@@ -1,0 +1,41 @@
+Text:Hi
+Sentiment: 0.20000000298023224, 0.20000000298023224
+Text:University of Maryland, Baltimore County is accepting applications for a two-year Postdoctoral Fellow for Faculty D… https://t.co/JXYaj5jiK7
+Sentiment: 0.10000000149011612, 0.10000000149011612
+Text:RT @ProfArmani: I can't wait any longer to announce the amazing faculty who are volunteering their time to join panels for this #mentoring…
+Sentiment: 0.8999999761581421, 0.8999999761581421
+Text:PhD Students and Postdocs: A virtual session, “Launching Your Career in the Med Tech Industry,” will be held on 
+Tu… https://t.co/K3Y5OTt7Iy
+Sentiment: 0.20000000298023224, 0.4000000059604645
+Text:Professors Douglas Densmore and Rabia Yazicigil were awarded a $1.5M grant by the National Science Foundation for a… https://t.co/sFd7NFjMgJ
+Sentiment: 0.10000000149011612, 0.10000000149011612
+Text:ECE Alumna Allie Mellen spoke to @Marketplace  about security recommendations for college students doing virtual le… https://t.co/Tl3W7sBEfk
+Sentiment: 0.20000000298023224, 0.4000000059604645
+Text:Prof. Luca Dal Negro received a @NSF Award for a project that will be developing miniaturized optical devices to si… https://t.co/qrAWGhx4Dy
+Sentiment: 0.10000000149011612, 0.10000000149011612
+Text:Correlation One is an NYC-based startup that hosts data science and engineering competitions for the world’s best S… https://t.co/0vkEGYJaVg
+Sentiment: 0.10000000149011612, 0.10000000149011612
+Text:https://t.co/TJlY20YskD
+Sentiment: 0.30000001192092896, 0.30000001192092896
+Text:Prof. Alan Pisano is looking for great project ideas for the capstone Senior Design Course at Boston University sta… https://t.co/xEY8lv8EtZ
+Sentiment: 0.6000000238418579, 0.6000000238418579
+Text:The Dissertation Writing Institute is designed to help doctoral candidates accomplish their writing goals and make… https://t.co/bLqGkTObiB
+Sentiment: 0.20000000298023224, 0.20000000298023224
+Text:ECE graduate student Santiago Gomez took action against the use of “master/slave” terminology in his engineering te… https://t.co/6Ki5mXBwO9
+Sentiment: -0.20000000298023224, 0.20000000298023224
+Text:The IEEE Information Theory Society has honored BU ECE Research Professor Robert M. Gray with the 2020 Aaron D. Wyn… https://t.co/TojTehWppN
+Sentiment: 0.0, 0.0
+Text:Prepare for liftoff! Checkout @BURPG's Summer 2020 Newsletter using this link:  https://t.co/fq3gxi4wEK
+Sentiment: 0.10000000149011612, 0.30000001192092896
+Text:ECE Professor Sahar Sharifzadeh is one of ten fast-rising researchers appointed to the Early Career Advisory Board… https://t.co/XJrITONQhz
+Sentiment: 0.20000000298023224, 0.5
+Text:2020 has been a year of unusual challenges, both for our community and the world at large, but that isn’t stopping… https://t.co/21pfmBXndh
+Sentiment: 0.20000000298023224, 0.4000000059604645
+Text:RT @BU_Tweets: This story is out of this world. A private rocket carrying a network of mini-sensors made by BU students blasted into space…
+Sentiment: 0.30000001192092896, 1.100000023841858
+Text:The Hariri Institute for Computing announced their 2020 Spring Research Incubation Awards; five ECE faculty members… https://t.co/KjQAWu8fI7
+Sentiment: 0.20000000298023224, 0.4000000059604645
+Text:BU is launching a student-built satellite for the first time. The ANDESITE mission will be launching on a… https://t.co/bn0j3LzWHe
+Sentiment: 0.0, 0.10000000149011612
+Text:ECE supports #ShutDownStem  For more information, click here: https://t.co/JNvwEci4Kh https://t.co/rus7yKYQWS
+Sentiment: 0.0, 0.0
