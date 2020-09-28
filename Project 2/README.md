@@ -38,7 +38,7 @@ $env:GOOGLE_APPLICATION_CREDENTIALS="[PATH]"
 
 Without this step , you may not able to call the API to analyze.
 
-In my code, I only analyze the tweets from Hashtag search. You can change it to other json file if you want.
+In my code, I only analyze the tweets from my home page. You can change it to other json file if you want.
 
 To run this program, use terminal to run this line
 ```cmd
