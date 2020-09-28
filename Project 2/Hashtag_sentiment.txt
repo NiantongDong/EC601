@@ -1,0 +1,41 @@
+Text:RT @TSGaxe: At the old MIT #boathouse in the middle '60s, later sold to #Boston #University, I think, after the new one was finished https:…
+Sentiment: 0.0, 0.0
+Text:At the old MIT #boathouse in the middle '60s, later sold to #Boston #University, I think, after the new one was fin… https://t.co/MZ8fberZwe
+Sentiment: -0.10000000149011612, 0.10000000149011612
+Text:RT @LiveBoston617: Message to all #Boston College and University Students from Boston Police Commissioner Gross. 
+
+#Live #Now #BostonPolice…
+Sentiment: 0.20000000298023224, 0.699999988079071
+Text:RT @LiveBoston617: Message to all #Boston College and University Students from Boston Police Commissioner Gross. 
+
+#Live #Now #BostonPolice…
+Sentiment: 0.20000000298023224, 0.699999988079071
+Text:RT @LiveBoston617: Message to all #Boston College and University Students from Boston Police Commissioner Gross. 
+
+#Live #Now #BostonPolice…
+Sentiment: 0.20000000298023224, 0.699999988079071
+Text:RT @LiveBoston617: Message to all #Boston College and University Students from Boston Police Commissioner Gross. 
+
+#Live #Now #BostonPolice…
+Sentiment: 0.20000000298023224, 0.699999988079071
+Text:RT @LiveBoston617: Message to all #Boston College and University Students from Boston Police Commissioner Gross. 
+
+#Live #Now #BostonPolice…
+Sentiment: 0.20000000298023224, 0.699999988079071
+Text:Message to all #Boston College and University Students from Boston Police Commissioner Gross. 
+
+#Live #Now… https://t.co/HJrosmjZhL
+Sentiment: 0.20000000298023224, 0.800000011920929
+Text:Row. #bu #boston #charlesriver #mynyclife #notnyc @ Boston University https://t.co/j3PUw8w7Zl
+Sentiment: 0.20000000298023224, 0.4000000059604645
+Text:My 19 year old son is being paid to be in #Boston, he works tomorrow in Chestnut Hill, MA.  He is a college student… https://t.co/gg2g9bRAZ3
+Sentiment: 0.0, 0.6000000238418579
+Text:RT @plopandrew: Call for Applications:  Edward O. Wilson Biodiversity Postdoctoral Fellowship/ Harvard University
+#harvard #boston #harvard…
+Sentiment: 0.0, 0.0
+Text:Call for Applications:  Edward O. Wilson Biodiversity Postdoctoral Fellowship/ Harvard University
+#harvard #boston… https://t.co/keID7deoww
+Sentiment: 0.20000000298023224, 0.4000000059604645
+Text:Call for Applications:  Edward O. Wilson Biodiversity Postdoctoral Fellowship/ Harvard University 
+#harvard #boston… https://t.co/c4d3dowqiL
+Sentiment: 0.20000000298023224, 0.4000000059604645
