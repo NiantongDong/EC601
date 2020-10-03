@@ -2,8 +2,9 @@
 Reference :
 For TweetAPI.py, Most of codes are modified based on the offical tweepy tutorial.
 For GoogleNLP.py, Modified from offical Google NLP tutorial.
+PySimpleGUI, https://github.com/PySimpleGUI/PySimpleGUI
 
-Python GUI Programming With Tkinter:https://realpython.com/python-gui-tkinter/#:~:text=Python%20has%20a%20lot%20of,Windows%2C%20macOS%2C%20and%20Linux.&text=Although%20Tkinter%20is%20considered%20the,framework%2C%20it's%20not%20without%20criticism.
+## Phase 1
 TweetAPI:
 Before run this python file, make sure you have the latest version of python. Also, you need to have Twitter develop account and relavent key to access twitter API.
 I store my key locally and load it when I run this program. If you want to use your own key, please name your file "Keys.py" and use the following format.
@@ -47,3 +48,23 @@ py GoogleNLP.py
 ```
 
 This program will automatically output a text file which contains the result, the sentiment score and sentiment magnitude.
+
+
+
+
+## Phase 2
+To set up environment, you need to run this line to install GUI.
+```
+pip install pysimplegui
+```
+
+Then, you can search specific user timeline and choose how many tweets you want to retrieve.
+
+The MVP for my program is to retrieve user tweets and analyze the sentiment. The user stories can be someone who want to know a person's recent attitude in twitter. For example, I want to know how Donald J. Trump doing recently. I can type in the user id realDonaldTrump and I want to know the recent 5 tweets. Then, it will pop up window to show his tweets or the sentiment result.(Looking bad I know and I will improve it later).
+The user can be anyone who want to do the analysis to other's twitter. The basic user stories is what I said about Donald J. Trump. So the score shows the sentiment range from -1 to 1. The magnitude shows the overall sentiment from 0 to +inf. Here is some samples about how to read the score and magnitude
+
+Sentiment	Sample Values
+Clearly Positive*	"score": 0.8, "magnitude": 3.0
+Clearly Negative*	"score": -0.6, "magnitude": 4.0
+Neutral	"score": 0.1, "magnitude": 0.0
+Mixed	"score": 0.0, "magnitude": 4.0
