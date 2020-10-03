@@ -63,8 +63,9 @@ Then, you can search specific user timeline and choose how many tweets you want 
 The MVP for my program is to retrieve user tweets and analyze the sentiment. The user stories can be someone who want to know a person's recent attitude in twitter. For example, I want to know how Donald J. Trump doing recently. I can type in the user id realDonaldTrump and I want to know the recent 5 tweets. Then, it will pop up window to show his tweets or the sentiment result.(Looking bad I know and I will improve it later).
 The user can be anyone who want to do the analysis to other's twitter. The basic user stories is what I said about Donald J. Trump. So the score shows the sentiment range from -1 to 1. The magnitude shows the overall sentiment from 0 to +inf. Here is some samples about how to read the score and magnitude
 
-Sentiment	Sample Values
-Clearly Positive*	"score": 0.8, "magnitude": 3.0
-Clearly Negative*	"score": -0.6, "magnitude": 4.0
-Neutral	"score": 0.1, "magnitude": 0.0
-Mixed	"score": 0.0, "magnitude": 4.0
+| Sentiment         | Sample Values                     | 
+| :-------------    | :----------:                      | 
+| Clearly Positive  | "score": 0.8, "magnitude": 3.0    | 
+| Clearly Negative  | "score": -0.6, "magnitude": 4.0   | 
+| Neutral           | "score": 0.1, "magnitude": 0.0    | 
+| Mixed             | "score": 0.0, "magnitude": 4.0    | 
