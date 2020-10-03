@@ -58,10 +58,11 @@ To set up environment, you need to run this line to install GUI.
 pip install pysimplegui
 ```
 
-Then, you can search specific user timeline and choose how many tweets you want to retrieve.
+Then, you can search specific user timeline and choose how many tweets you want to retrieve. If the user id is not found, it will return your own timeline instead. So make sure you input the right user id.
 
-The MVP for my program is to retrieve user tweets and analyze the sentiment. The user stories can be someone who want to know a person's recent attitude in twitter. For example, I want to know how Donald J. Trump doing recently. I can type in the user id realDonaldTrump and I want to know the recent 5 tweets. Then, it will pop up window to show his tweets or the sentiment result.(Looking bad I know and I will improve it later).
-The user can be anyone who want to do the analysis to other's twitter. The basic user stories is what I said about Donald J. Trump. So the score shows the sentiment range from -1 to 1. The magnitude shows the overall sentiment from 0 to +inf. Here is some samples about how to read the score and magnitude
+The MVP for my program is to retrieve user tweets and analyze the sentiment. The user stories can be someone who want to know a person's recent attitude in twitter. For example, I want to know how Donald J. Trump doing recently. I can type in the user id 'realDonaldTrump' and I want to know the recent 5 tweets,or any number you want. Then, it will pop up window to show his tweets or the sentiment result.(Looking bad I know and I will improve it later).
+The user can be anyone who want to do the analysis to other's twitter. The basic user stories is what I said about Donald J. Trump.You can also use this analyzer to analyze anyone you want as long as the user is exist. Click the 'Sentiment analyze' button to show the result. It will tells you how this user recent sentiment.It can even analyze the user's retweet message and his/her opinion about the retweeted message if he/she said something about it. I will do the hashtag search and sentiment analysis if time permitted since the API keeps return status code 429 and I don't know how to solve it now. 
+To understand the result,the score shows the sentiment range from -1 to 1. The magnitude shows the overall sentiment from 0 to +inf. Here is some samples about how to read the score and magnitude
 
 | Sentiment         | Sample Values                     | 
 | :-------------    | :----------:                      | 
