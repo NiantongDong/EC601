@@ -1,0 +1,10 @@
+Text:Once the tallest building in the world, this 72-story landmark property was restored to its original grandeur in 19… https://t.co/3sH67UpiRS
+Sentiment: 0.4000000059604645, 0.4000000059604645
+Text:It's always Golden Hour at @TrumpChicago, where 92 stories of style and luxury soar high above Chicago's stunning c… https://t.co/MLJyggnrUA
+Sentiment: 0.800000011920929, 0.800000011920929
+Text:As Autumn begins and #NationalHoneyMonth ends, we're sharing the buzz-worthy secret that sets @TrumpJupiter apart f… https://t.co/C1JVlrvmWm
+Sentiment: 0.0, 0.0
+Text:Over the years, we have watched @b_dechambeau transform and perfect his golf game. Last night, we were honored to b… https://t.co/RLWb6krGhN
+Sentiment: 0.6000000238418579, 1.2999999523162842
+Text:RT @TrumpGolf: We are so proud of our dear friend @b_dechambeau for capturing his first major victory at the U.S. Open! Congratulations on…
+Sentiment: 0.800000011920929, 1.7000000476837158
