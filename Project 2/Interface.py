@@ -7,7 +7,7 @@ sg.theme('DarkTanBlue')	# Add a touch of color
 layout = [  [sg.Text('Enter the person you want to search')],
             [sg.Text('User name:'), sg.InputText()],
             [sg.Text('Number of tweets you want'),sg.InputText()],
-            [sg.Button('Search Tweet'),sg.Button('Sentiment analyze')], sg.Button('Quit')]
+            [sg.Button('Search Tweet'),sg.Button('Sentiment analyze'), sg.Button('Quit')]]
 
 
 # Create the Window
