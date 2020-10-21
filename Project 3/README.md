@@ -14,6 +14,61 @@ Then, if you click "call", the js script will create a "remote" object to connec
 
 <img src="peer2peer.png">
 
+#### Key feature
+
+This example shows the very simple usage for WebRTC. It can establish connection between user and also access camera and audio on client side. The WebRTC provides various API to implement every function we need for a online meeting.
+
+##### Access camera and audio
+
+###### API usage
+
+We use navigator.mediaDevices.getUserMedia to request access for user media device such as camera and audio. It pass a constraints to get which media we want. For example, if we only need camera, we can set the constraint as 
+
+```javascript
+{ video: true}
+```
+
+Then, it will only request permission for camera. Also, the script can require permission with parameter. For example, it can set up the resolution for camera.
+
+```javascript
+{
+  video: {
+    width: { min: 1280 },
+    height: { min: 720 }
+  }
+}
+```
+
+###### Return Value
+
+The return value of this API is an object and can be stored in local variable, LocalStream. 
+
+###### Exceptions
+
+This API can also raises some exceptions. One of the most common exceptions is that if the user does not give permission, it will throw "NotAllowedError". The other common exceptions are "NotFoundError", which is no device founded, "AbortError", which device prevents the script to use.
+
+##### Call
+
+The next feature for this demo is the RTCPeerConnection API. This API constructs a object which represents the connection between the local user and the remote user. You can also pass your configuration for the connection to construct the object. Otherwise, it will configure to appropriate basic defaults for the connection.
+
+Once you construct the object, you can add them to the event listener to exchange data between local and remote, which is building online meeting.
+
+##### SDP Semantics
+
+This script also support two types of SDP semantics, plan B and unified plan. The Google is preparing to remove the plan B and migrate all current WebRTC app to unified plan.
+
+###### What is SDP Semantics
+
+The SDP message is a message which contains information that describes individual media tracks which is important for us to do peer-to-peer connection. 
+
+###### Difference between plan B and unified plan
+
+Why we don't need plan B anymore?  The first reason is that the plan B assumes all media tracks that share a media type also share a single transport, which will cause a large amount of connections when you do a group meeting. The unified plan will significantly reduces the number of connections by using the SDP specification called BUNDLE.
+
+On the other hands, the plan B also have compatibility issue. A great example from Temasys that "when a peer on a Chrome 71 browser connects to a peer on any Firefox browser updated since 2015. In this case, the peer using Firefox would only be able to see the first tracks of each m= line in a “plan-b” formatted SDP message; Firefox ignores the rest of the tracks in the m= line because it expects to find only one media track in it.".  In that case, the Google is trying to remove plan B so that it won't cause any compatibility issues between peer to peer connection using different browser.
+
+
+
 #### Code explanation 
 
 The website request access to user media when you click "Start" button. The code looks like this.
@@ -101,4 +156,10 @@ That is the main function in this example, there are still a lot of help functio
 ### Phase 2
 
 
+
+
+
+### Reference
+
+https://temasys.io/ripping-off-the-band-aid-chromes-shift-to-unified-plan/
 
