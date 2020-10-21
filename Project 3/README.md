@@ -155,11 +155,54 @@ That is the main function in this example, there are still a lot of help functio
 
 ### Phase 2
 
+##### Overall
 
+To analyze the security hole for session creation for this demo, the first thing we need to find out is the method that users communicate. In WebRTC, we have such method called ICE candidates. The ICE candidates is that each users propose the best way to communicate first, then it will select the worst candidates among all users. There are two types of candidate (communication method), one is UDP and the other one is TCP. The ideal communication method is UDP because it is faster. However, it may not available for some users to communicate via UDP.![img](https://bloggeek.me/wp-content/uploads/2020/07/202007-turn-udp-tcp-tls.png)
 
+So, when we are able to choose the candidate, we can use the candidate to connect to TURN server to create a session for meeting. So, if we want to hijack a meeting, we need to find out the security hole in UDP or TCP.
 
+##### UDP security hole
+
+UDP is a very simple protocol to transfer message. The UDP header format looks like this.![What is UDP (User Datagram Protocol)?](https://cdn.ttgtmedia.com/rms/onlineimages/networking-udp_mobile.png)
+
+It clearly shows that the communication is identified by source IP and port  and destination IP and port. The message are not acknowledged and the reception is also not guaranteed. In that case, it may lose some packets during communication but it should not be a big deal. 
+
+According to EC521, thanks to Professor Stringhini, UDP hijacking is possible in some scenario. Since the UDP cannot verify who send the message to require session creation. If we know the IP addresses for the two endpoints and the port for two endpoints. We can establish a new connection with server pretending to be "verified" user and get into the meeting. If the meeting is hosting on a local network such as in a company network, we can use ARP spoofing to bind the user's MAC address with the attacker's IP address, which can redirect all message from server to the attacker endpoint. However, ARP spoofing only work at local network.
+
+##### TCP security hole
+
+The TCP is a more complicated protocol. The header format looks like this.
+
+![TCP vs. UDP](https://www.lifewire.com/thmb/OhU9Rn5-Myfpbzjyy98U8UMAMCs=/1235x695/smart/filters:no_upscale()/tcp-headers-f2c0881ea4c94e919794b7c0677ab90a.jpg)
+
+The TCP has sequence number and acknowledgement number to make sure the integrity of packets.  The entire TCP connection setup scheme is also different.
+
+ ![img](https://tr1.cbsistatic.com/hub/i/2015/06/03/5ca70aee-0986-11e5-940f-14feb5cc3d2a/t01820000323cad20_01.gif)
+
+So, to inject data into the connection is not easy but possible. The attacker needs to know source IP, destination IP, source port, destination port, sequence number and acknowledgment number. One of the common method to do the hijacking is to guess initial sequence number. The ideal initial sequence number generation should be "random" but in real-world it is not. According to "techrepublic", "the TCP protocol description recommends that the value of this 32-bit counter be increased by 1 every 4 microseconds. What do we see when this practice is implemented? Unfortunately, we see very poor results. In early Berkeley-compatible UNIX kernels, the value of this counter increased by 128 every second and by 64 with every new connection. Analysis of the Linux OS sources shows that the OS generates the ISN value not randomly, but as a dependent variable of the current time"
+
+The example above shows that the attacker can guess the sequence number by current time. If we have enough connection log from the server, we can find a method to calculate the next initial sequence number and then inject our data to create a new connection to the server.
+
+##### Other security issues
+
+There are some other way to attack the WebRTC TURN server. It may or may not related to project 3 but I want to mention them because they may also be a possible way for us to find the security hole for our term project
+
+###### DoS attack
+
+In our term project, we use WebSocket to connect with server. The DoS is a very common way to disable the server. It is also the easiest way to do it. Simply use a large amount of client to connect to server.![img](https://docs.google.com/uc?id=0B61cQ4sbhmWSVkNVZ2s3cmk2aHM)
+
+###### Cross-site WebSocket Hijacking
+
+It is also a common attack method. It is related to the cross-site request forgery vulnerability on the WebSocket handshake because the WebSocket does not authenticate user in handshake process. An attacker can create a malicious web page on their own domain which establishes a cross-site WebSocket connection to the vulnerable application. The application will handle the connection in the context of the victim user's session with the application. In that case, the attacker can perform unauthorized actions as the victim user and retrieve sensitive data that the user can access.
 
 ### Reference
 
 https://temasys.io/ripping-off-the-band-aid-chromes-shift-to-unified-plan/
 
+https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Connectivity#:~:text=for%20your%20needs.-,ICE%20candidates,or%20through%20a%20TURN%20server
+
+https://www.techrepublic.com/article/tcp-hijacking/
+
+https://www.neuralegion.com/blog/websocket-security-top-vulnerabilities/
+
+https://www.neuralegion.com/blog/websocket-security-top-vulnerabilities/
