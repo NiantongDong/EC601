@@ -47,23 +47,28 @@ def Get_User_Timeline(Local_API,User_ID,Count_Number):
         return False
 
 #Search and return tweets based on input txt and time.
-def GET_Search_Tweets(Local_API,Target_content,search_type,Count_Number,Time):
-    Result_Tweets = Local_API.search(q=Target_content,result_type = search_type,count = Count_Number,until = Time)
-    Display_tweets(Result_Tweets)
-    Write_tweets_to_File(Result_Tweets,'Search_tweets')
-    return Result_Tweets
+def GET_Search_Tweets(Local_API,Target_content,search_type,Count_Number,Time,filename):
+    try:
+        Result_Tweets = Local_API.search(q=Target_content,result_type = search_type,count = Count_Number,until = Time)
+        # Display_tweets(Result_Tweets)
+        result = Write_tweets_to_File(Result_Tweets,filename)
+        return result
+    except Exception:
+        return False
 
 #Search tweets based on Hashtag and time.
 def GET_Hashtag_Search_Tweets(Local_API,Hashtag,Count_Number,Time_before):
     Hashtag_Tweets = tweepy.Cursor(Local_API.search,q=Hashtag,count=Count_Number,since=Time_before)
-    Write_tweets_to_File(Hashtag_Tweets.items(),'Hashtag_Tweets')
+    print(Hashtag_Tweets.items())
+    # Write_tweets_to_File(Hashtag_Tweets.items(),'Hashtag_Tweets')
     for status in Hashtag_Tweets.items():
         print(status.text)
     return Hashtag_Tweets
 
 if __name__ == "__main__":
     API = Authorization_Setup()
-    Home_Tweets = GET_My_Home_tweets(API)
-    User_Tweets = Get_User_Timeline(API,"NiantongD",1000) #Use Boston University ECE department twitter as example.
-    # Result_Tweets = GET_Search_Tweets(API,"Boston University","recent",10,"2020-09-26")
-    # GET_Hashtag_Search_Tweets(API,"#Trump",5,"2020-09-30")
+    # Home_Tweets = GET_My_Home_tweets(API)
+    # User_Tweets = Get_User_Timeline(API,"BU_ece",10) #Use Boston University ECE department twitter as example.
+    # Result_Tweets = GET_Search_Tweets(API,"Boston University","recent",10,"2020-11-1","test_Search_1")
+    # Result_Tweets2 = GET_Search_Tweets(API,"Boston University","recent",10,"2021-12-12","test_Search_2")
+    GET_Hashtag_Search_Tweets(API,"#Trump",5,"2020-11-01")
