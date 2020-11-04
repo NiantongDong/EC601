@@ -14,7 +14,7 @@ def Display_tweets(Input_list):
     tweet_text_list = []
     for status in Input_list:
         tweet_text_list.append(status.text)
-        print(status.text,end ="\n\n")
+        # print(status.text,end ="\n\n")
     return tweet_text_list
 
 #Write tweets information to file as json format.
@@ -38,10 +38,13 @@ def GET_My_Home_tweets(Local_API):
 
 #Get certain number of tweets from a single twitter account.
 def Get_User_Timeline(Local_API,User_ID,Count_Number):
-    user_tweets_list = Local_API.user_timeline(User_ID,count = Count_Number)
-    # Display_tweets(user_tweets)
-    Write_tweets_to_File(user_tweets_list,'user_tweets')
-    return user_tweets_list
+    try:
+        user_tweets_list = Local_API.user_timeline(User_ID,count = Count_Number)
+        # Display_tweets(user_tweets)
+        result = Write_tweets_to_File(user_tweets_list,'user_tweets')
+        return result
+    except Exception:
+        return False
 
 #Search and return tweets based on input txt and time.
 def GET_Search_Tweets(Local_API,Target_content,search_type,Count_Number,Time):
@@ -61,6 +64,6 @@ def GET_Hashtag_Search_Tweets(Local_API,Hashtag,Count_Number,Time_before):
 if __name__ == "__main__":
     API = Authorization_Setup()
     Home_Tweets = GET_My_Home_tweets(API)
-    # User_Tweets = Get_User_Timeline(API,'BU_ece',10) #Use Boston University ECE department twitter as example.
+    User_Tweets = Get_User_Timeline(API,"NiantongD",1000) #Use Boston University ECE department twitter as example.
     # Result_Tweets = GET_Search_Tweets(API,"Boston University","recent",10,"2020-09-26")
     # GET_Hashtag_Search_Tweets(API,"#Trump",5,"2020-09-30")
