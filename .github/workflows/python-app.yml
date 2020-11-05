@@ -29,8 +29,8 @@ jobs:
       env:
           CONSUMER_KEY: ${{ secrets.consumer_key }}
           CONSUMER_SECRET:  ${{ secrets.consumer_secret }} 
-          ACCESS_KEY: ${{ secrets.access_token }}
-          ACCESS_SECRET: ${{ secrets.access_token_secret }} 
+          ACCESS_TOKEN: ${{ secrets.access_token }}
+          ACCESS_TOKEN_SECRET: ${{ secrets.access_token_secret }} 
       run: |
         cd Project\ 4
         python TweetAPI.py
