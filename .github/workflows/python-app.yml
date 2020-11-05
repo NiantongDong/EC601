@@ -32,4 +32,4 @@ jobs:
           ACCESS_SECRET: ${{ secrets.ACCESS_SECRET }} 
       run: |
         python TweetAPI.py
-        pytest
+        python Unit_Test.py
