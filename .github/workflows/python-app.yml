@@ -31,6 +31,6 @@ jobs:
           ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
           ACCESS_SECRET: ${{ secrets.ACCESS_SECRET }} 
       run: |
-        cd /project4
+        cd Project 4
         python TweetAPI.py
         python Unit_Test.py
