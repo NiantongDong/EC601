@@ -2,6 +2,7 @@ import unittest
 import TweetAPI as TA
 import Keys
 import json
+import sys
 
 api = TA.Authorization_Setup()
 class TestSum(unittest.TestCase):
@@ -34,8 +35,15 @@ class TestSum(unittest.TestCase):
         self.assertEqual(TA.GET_Search_Tweets(api,"Boston University","recent",10,"2021-12-12","test_Search_result_2"),data_search_2,"Error")
         #Content not found -> always found something.
 
-    # def test_Hashtag_Search(self):
+    def test_Hashtag_Search(self):
+        with open('test_Hashtag_1.json','r') as f:
+            data_Hashtag_1 = json.load(f)
+        #Expected behaviour -> right argument
+        #change to 1 to aviod exceeding search limit.
+        self.assertEqual(TA.GET_Hashtag_Search_Tweets(api,"#Boston",1,"2020-11-01","result_Hashtag_1"),data_Hashtag_1,"Error")
+        #Hashtag search always return something, I am not sure what I to test.
 
+    #Google API test
 
 
 if __name__ == '__main__':

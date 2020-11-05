@@ -2,19 +2,22 @@ import tweepy
 import Keys #All my keys in local file
 import sys
 import json #To write file as json format
-
+import sys
 def Authorization_Setup():
-    auth = tweepy.OAuthHandler(Keys.consumer_key, Keys.consumer_secret)
-    auth.set_access_token(Keys.access_token, Keys.access_token_secret)
-    api = tweepy.API(auth,wait_on_rate_limit=True)
-    return api
+    try:
+        auth = tweepy.OAuthHandler(Keys.consumer_key, Keys.consumer_secret)
+        auth.set_access_token(Keys.access_token, Keys.access_token_secret)
+        api = tweepy.API(auth)
+        return api
+    except Exception:
+        sys.exit("Reach limit, cannot connect to API")
 
 #Print out tweets' text
 def Display_tweets(Input_list):
     tweet_text_list = []
     for status in Input_list:
         tweet_text_list.append(status.text)
-        # print(status.text,end ="\n\n")
+        print(status.text,end ="\n\n")
     return tweet_text_list
 
 #Write tweets information to file as json format.
@@ -28,6 +31,18 @@ def Write_tweets_to_File(Input_list,target_filename):
     json.dump(Display_tweets(Input_list),Tweets_text)
     Tweets_text.close
     return Display_tweets(Input_list)
+
+
+def Write_tweets_to_File_cursor(Input_list,target_filename):
+    data = []
+    filename = "%s.json" % target_filename
+    Tweets_text = open(filename, 'w') 
+    for status in Input_list:
+        # json.dump(status._json,Tweets_text,indent = 4)
+        data.append(status.text)
+    json.dump(data,Tweets_text)
+    Tweets_text.close
+    return data
     
 #Get all of tweets from my home page.
 def GET_My_Home_tweets(Local_API):
@@ -57,18 +72,17 @@ def GET_Search_Tweets(Local_API,Target_content,search_type,Count_Number,Time,fil
         return False
 
 #Search tweets based on Hashtag and time.
-def GET_Hashtag_Search_Tweets(Local_API,Hashtag,Count_Number,Time_before):
+def GET_Hashtag_Search_Tweets(Local_API,Hashtag,Count_Number,Time_before,filename):
     Hashtag_Tweets = tweepy.Cursor(Local_API.search,q=Hashtag,count=Count_Number,since=Time_before)
-    print(Hashtag_Tweets.items())
-    # Write_tweets_to_File(Hashtag_Tweets.items(),'Hashtag_Tweets')
-    for status in Hashtag_Tweets.items():
-        print(status.text)
-    return Hashtag_Tweets
+    # Display_tweets(Hashtag_Tweets.items())
+    result = Write_tweets_to_File_cursor(Hashtag_Tweets.items(),filename)
+    return result
 
 if __name__ == "__main__":
     API = Authorization_Setup()
-    # Home_Tweets = GET_My_Home_tweets(API)
-    # User_Tweets = Get_User_Timeline(API,"BU_ece",10) #Use Boston University ECE department twitter as example.
-    # Result_Tweets = GET_Search_Tweets(API,"Boston University","recent",10,"2020-11-1","test_Search_1")
-    # Result_Tweets2 = GET_Search_Tweets(API,"Boston University","recent",10,"2021-12-12","test_Search_2")
-    GET_Hashtag_Search_Tweets(API,"#Trump",5,"2020-11-01")
+    Home_Tweets = GET_My_Home_tweets(API)
+    User_Tweets = Get_User_Timeline(API,"BU_ece",10) #Use Boston University ECE department twitter as example.
+    Result_Tweets = GET_Search_Tweets(API,"Boston University","recent",10,"2020-11-1","test_Search_1")
+    Result_Tweets2 = GET_Search_Tweets(API,"Boston University","recent",10,"2021-12-12","test_Search_2")
+    Result_Hashtag_1 = GET_Hashtag_Search_Tweets(API,"#Boston",1,"2020-11-01","test_Hashtag_1")
+    
