@@ -27,10 +27,10 @@ jobs:
         pip install tweepy
     - name: Test with uniitest
       env:
-          CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
-          CONSUMER_SECRET:  ${{ secrets.CONSUMER_SECRET }} 
-          ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
-          ACCESS_SECRET: ${{ secrets.ACCESS_SECRET }} 
+          CONSUMER_KEY: ${{ secrets.consumer_key }}
+          CONSUMER_SECRET:  ${{ secrets.consumer_secret }} 
+          ACCESS_KEY: ${{ secrets.access_token }}
+          ACCESS_SECRET: ${{ secrets.access_token_secret }} 
       run: |
         cd Project\ 4
         python TweetAPI.py
